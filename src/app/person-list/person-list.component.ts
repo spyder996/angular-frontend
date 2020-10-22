@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵsetCurrentInjector } from '@angular/core';
 import {Person} from '../person';
 import {PersonService} from '../person.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-list',
@@ -11,7 +12,8 @@ export class PersonListComponent implements OnInit {
 
   persons: Person[];
 
-  constructor(private personService: PersonService) { }
+  constructor(private personService: PersonService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getPersons();
@@ -22,4 +24,19 @@ export class PersonListComponent implements OnInit {
       this.persons = data;
     });
   }
+
+  updatePerson(id: number){
+   this.router.navigate(['updatePerson', id]);
+ }
+
+ deletePerson(id: number){
+    this.personService.deletePersonById(id).subscribe(data => {
+    this.getPersons();
+   });
+ }
+
+ personDetails(id: number){
+  this.router.navigate(['personDetails', id]);
+ }
+
 }

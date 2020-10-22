@@ -1,0 +1,21 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Update Person</h3>
+    <form (ngSubmit) = "onSubmit()">
+        <div class="form-group">
+            <label>Person ID</label>
+            <input type="number" class="form-control" id="id"
+                [(ngModel)] = "person.id" name= "id">
+        </div>
+        <div class="form-group">
+            <label>Person Name</label>
+            <input type="text" class="form-control" id="name"
+                [(ngModel)] ="person.name" name="name">
+        </div>
+        <div class="form-group">
+            <label>Person city</label>
+            <input type="text" class="form-control" id="city"
+                [(ngModel)] ="person.city" name="city">
+        </div>
+        <button class="btn btn-success" type="submit">Add Person</button>
+    </form>
+    </div>

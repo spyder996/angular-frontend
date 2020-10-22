@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Person } from '../person';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-create-person',
@@ -8,13 +10,25 @@ import { Person } from '../person';
 })
 export class CreatePersonComponent implements OnInit {
   person : Person = new Person();
-  constructor() { }
+  constructor(private personService: PersonService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  savePerson(){
+    this.personService.createPerson(this.person).subscribe(data => {
+      console.log(data);
+        }, 
+    error => console.log(error));
+  }
+
+  goToPersonList(){
+    this.router.navigate(['/getAllPersons']);
+  }
+
   onSubmit(){
-    console.log(this.person);
+    this.savePerson();
+    this.goToPersonList();
   }
 
 }

@@ -6,13 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { CreatePersonComponent } from './create-person/create-person.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { PersonUpdateComponent } from './person-update/person-update.component';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonListComponent,
-    CreatePersonComponent
+    CreatePersonComponent,
+    PersonUpdateComponent,
+    PersonDetailsComponent
   ],
   imports: [
     BrowserModule,
